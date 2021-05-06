@@ -15,7 +15,7 @@ pipeline {
 
     stage('deploy') {
       steps {
-        sh 'aws elasticbeanstalk create-application-version --region ap-northeast-2 --application-name springbootThymeleaf --version-label ${BUILD_TAG} --source-bundle S3Bucket="bhoh-s3",S3Key="application.war"' 
+        sh 'aws elasticbeanstalk create-application-version --region ap-northeast-2 --application-name springbootThymeleaf --version-label ${BUILD_TAG} --source-bundle S3Bucket="bhoh-s3",S3Key="application.war"'
         sh 'aws elasticbeanstalk update-environment --region ap-northeast-2 --environment-name springbootthymeleaf-sample --version-label ${BUILD_TAG}'
       }
     }
